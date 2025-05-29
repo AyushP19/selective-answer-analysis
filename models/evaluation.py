@@ -1,19 +1,23 @@
 def evaluate_answer(grammar_mistakes, similarity_score):
     """
-    Calculates the final score based on:
-    - Grammar penalty (5 points per mistake)
-    - Similarity boost (scaled)
-    
-    Returns final score and a remark.
+    Calculates final score based on:
+    - Similarity (80% weight)
+    - Grammar (20% weight, minus 2 marks per mistake)
     """
 
-    # Scoring formula
-    penalty = grammar_mistakes * 5           
-    similarity_boost = similarity_score * 0.5  
-    raw_score = 100 - penalty + similarity_boost
-    final_score = max(0, min(raw_score, 100))  
+    # Step 1: Ensure similarity_score is in range 0.0 - 1.0
+    if similarity_score > 1.0:  # It's likely a percentage like 32.89, so convert it
+        similarity_score = similarity_score / 100.0
 
-    # Generate remark based on performance
+    # Step 2: Calculate score components
+    similarity_marks = similarity_score * 80  # Max 80 marks from similarity
+    grammar_marks = max(0, 20 - (grammar_mistakes * 2))  # Lose 2 marks per mistake
+
+    # Step 3: Combine and clamp
+    final_score = similarity_marks + grammar_marks
+    final_score = round(min(100, max(0, final_score)), 2)
+
+    # Step 4: Remark
     if final_score >= 90:
         remark = "Excellent! Your answer is well-written and highly accurate."
     elif final_score >= 75:
@@ -21,8 +25,8 @@ def evaluate_answer(grammar_mistakes, similarity_score):
     elif final_score >= 60:
         remark = "Good effort! Focus more on grammar and content alignment."
     elif final_score >= 40:
-        remark = "Needs improvement. Check grammar and try to match the expected content better."
+        remark = "Needs improvement. Improve grammar and content relevance."
     else:
         remark = "Poor performance. Please review the topic and try again."
 
-    return round(final_score, 2), remark
+    return final_score, remark

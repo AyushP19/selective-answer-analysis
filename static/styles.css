@@ -157,10 +157,10 @@
   transition: background 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .form-section button:hover {
+  /* .form-section button:hover {
     background: linear-gradient(90deg, #FF6F61 0%, #9F8FEF 100%);
   box-shadow: 0 6px 18px rgba(255, 111, 97, 0.5);
-  }
+  } */
   
   .result-section {
     flex: 1;
