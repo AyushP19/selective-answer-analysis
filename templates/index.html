@@ -1,0 +1,92 @@
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Evaluation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">📝 AI Answer Evaluation</h1>
+
+        
+        <div class="main-layout">
+           
+            <form id="answerForm" class="form-section" enctype="multipart/form-data">
+                <label for="question">📚 Question:</label>
+                <textarea id="question" placeholder="Enter your question..." required></textarea>
+
+                <label for="model_answer">✅ Model Answer:</label>
+                <textarea id="model_answer" placeholder="Enter the ideal answer..." required></textarea>
+
+                <label for="student_answer">👩‍🎓 Student Answer:</label>
+                <textarea id="student_answer" placeholder="Enter the student's response..." required></textarea>
+
+                <label for="file">📄 Upload PDF Answer:</label>
+                <input type="file" id="file" name="file" accept="application/pdf" required>
+
+                <button type="submit">🔍 Evaluate Answer</button>
+            </form>
+
+           
+            <div id="result" class="result-section"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Evaluation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- <h1 class="title">📝 AI Answer Evaluation</h1> -->
+           <div class="title-bar">
+        <h1 class="title creative-title">
+  <span class="title-icon">📝</span>
+  <span>AI Answer Evaluation</span>
+</h1>
+<p class="subtitle">Empowering educators with instant, AI-powered answer checking</p>
+</div>
+
+
+        <div class="main-layout">
+          <!-- Left: Form -->
+          <form id="answerForm" class="form-section">
+            <label for="question">📚 Question:</label>
+            <textarea id="question" placeholder="Enter your question..." required></textarea>
+
+            <label for="model_answer">✅ Model Answer:</label>
+            <textarea id="model_answer" placeholder="Enter the ideal answer..." required></textarea>
+
+            <label for="student_answer">👩‍🎓 Student Answer:</label>
+            <textarea id="student_answer" placeholder="Enter the student's response..." required></textarea>
+
+            <button type="submit">🔍 Evaluate Answer</button>
+          </form>
+
+          <!-- Right: Result -->
+          <div id="result" class="result-section"></div>
+        </div>
+
+        <div style="text-align:center; margin-top:20px;">
+            <a href="/upload" class="upload-link">📄 Upload PDF Instead</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF for Evaluation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">📄 Upload PDF and Evaluate</h1>
+
+        <form id="uploadForm" class="form-section">
+            <input type="file" id="pdfFile" accept="application/pdf" required>
+            <button type="submit">📤 Upload and Extract</button>
+        </form>
+
+        <div id="extractedQA" class="result-section"></div>
+
+        <div style="text-align:center; margin-top:20px;">
+            <a href="/" class="upload-link">🔙 Back to Manual Input</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='upload_pdf.js') }}"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF for Evaluation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- <h1 class="title">📄 Upload PDF and Evaluate</h1> -->
+
+         <div class="title-bar">
+        <h1 class="title creative-title">
+  <span class="title-icon">📄</span>
+  <span> Upload PDF and Evaluate</span>
+</h1>
+
+</div>
+         <div class="main-layout">
+
+        <!-- <form id="uploadForm" class="form-section">
+            
+            <input type="file" id="pdfFile" name="pdf" accept="application/pdf" required>
+            <button type="submit">📤 Upload and Extract</button>
+        </form> -->
+
+        <form id="uploadForm" class="form-section animated-upload">
+  <label for="pdfFile" class="upload-label">
+    <div class="upload-illustration">
+      <!-- Place a Lottie animation here, or use an SVG icon -->
+      <img src="/static/upload-animated.svg" alt="Upload" class="upload-icon" />
+    </div>
+    <span class="upload-text">Drag & drop PDF here or click to select</span>
+    <input type="file" id="pdfFile" name="pdf" accept="application/pdf" required hidden>
+  </label>
+  <button type="submit" class="upload-btn">📤 Upload and Extract</button>
+</form>
+
+
+        <div id="extractedQA" class="result-section"></div>
+        </div>
+
+        <div style="text-align:center; margin-top:20px;">
+            <a href="/" class="upload-link">🔙 Back to Manual Input</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='upload_pdf.js') }}"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</body>
+</html>
