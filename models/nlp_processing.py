@@ -13,8 +13,8 @@ nlp = spacy.load("en_core_web_sm")
 nltk.download("punkt")
 nltk.download("stopwords")
 
-# Initialize grammar checking tool
-tool = language_tool_python.LanguageTool('en-US')
+# ✅ Use public API version of LanguageTool (no Java needed)
+tool = language_tool_python.LanguageToolPublicAPI('en-US')
 
 def check_grammar(text):
     """
